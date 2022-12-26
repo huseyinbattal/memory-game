@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  max-width: 600px;
+  width: 350px;
   margin:0 auto;
 }
 
@@ -44,4 +44,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap:20px;
+}
+
+button{
+  width: 150px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+button:hover{
+  color:black;
+  background-color: white;
+  transition: all ease-in 0.2s;
+  border:1px solid green
+
+}
+
+a{
+  color:white
 }

@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import SingleCard from "./components/SingleCard";
 
 const cardImages = [
-  { src: "/img/helmet-1.png", matched: false },
-  { src: "/img/potion-1.png", matched: false },
-  { src: "/img/ring-1.png", matched: false },
-  { src: "/img/scroll-1.png", matched: false },
-  { src: "/img/shield-1.png", matched: false },
-  { src: "/img/sword-1.png", matched: false },
+  { src: "/img/js-1.svg", matched: false },
+  { src: "/img/html-1.svg", matched: false },
+  { src: "/img/type-1.svg", matched: false },
+  { src: "/img/git-1.svg", matched: false },
+  { src: "/img/redux-1.svg", matched: false },
+  { src: "/img/node-1.svg", matched: false },
 ];
 
 function App() {
@@ -22,7 +22,10 @@ function App() {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
-
+    
+    
+      setChoiceOne(null);
+      setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -34,8 +37,8 @@ function App() {
   };
 
   useEffect(() => {
-    setDisabled(true)
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
         setCards((prevCards) => {
           return prevCards.map((card) => {
@@ -64,6 +67,10 @@ function App() {
     setDisabled(false);
   };
 
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
@@ -80,6 +87,8 @@ function App() {
           />
         ))}
       </div>
+      <p>Turns: {turns}</p>
+      <a target="_blank" href="https://www.huseyinbattal.online/">www.huseyinbattal.online</a>
     </div>
   );
 }
